@@ -1,0 +1,15 @@
+"C:\Users\Sabrina Zheng\AppData\Local\Programs\Python\Python312\python.exe" "C:\Users\Sabrina Zheng\PycharmProjects\CSCI-323-Assignments\Assignment1.py"
+                                   100        1000        10000
+native_search                   0.000000   4.501820   26.019812
+linear_search                   1.001835  13.050556  140.752554
+binary_search_recursive         1.999140   0.000000    1.000404
+binary_search_iterative         0.997305   3.005981    0.000000
+binary_search_iterative_better  0.997782   2.013206    0.000000
+binary_search_randomized        0.999451   4.005909    5.997181
+exponential_search              1.000404   2.507925    0.998020
+jump_search                     0.999451  10.033369   17.531872
+interpolation_search            0.000000   0.999689    0.000000
+fibonacci_search                3.033161   3.051043    2.081871
+ternary_search                  0.000000   0.000000    4.508495
+
+Process finished with exit code 0
