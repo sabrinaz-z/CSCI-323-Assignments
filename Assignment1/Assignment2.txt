@@ -1,0 +1,19 @@
+"C:\Users\Sabrina Zheng\AppData\Local\Programs\Python\Python312\python.exe" "C:\Users\Sabrina Zheng\PycharmProjects\CSCI-323-Assignments\Assignment1\Assignment2.py"
+                           100        500         1000
+native_sort            0.000000   0.000000    2.993822
+bubble_sort            2.052307  65.364599  297.522306
+bubble_sort_optimized  3.004313  71.145773  306.097746
+selection_sort         1.001596  35.315275  140.563250
+insertion_sort         0.999212  36.700726  141.067743
+binary_insertion_sort  1.000166  21.091700   83.418846
+cocktail_sort          1.127958  66.730261  272.365093
+shell_sort             0.997782   1.000166   13.145685
+merge_sort             0.000000  10.017157   13.059139
+quick_sort             1.999378   1.000643    9.506226
+heap_sort              0.998735  10.021210   14.222622
+bucket_sort            0.000000   0.000000    4.003763
+counting_sort          0.999928   3.507614    8.500576
+radix_sort             1.999855   6.014347   13.005257
+tim_sort               0.000000   8.045435   11.013985
+
+Process finished with exit code 0

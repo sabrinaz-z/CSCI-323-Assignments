@@ -224,17 +224,48 @@ def print_times(dict_searches):
     print(df)
 
 
-def plot_times(dict_searches, sizes, trials, searches, file_name):
-    search_num = 0
+# def plot_times(dict_searches, sizes, trials, searches, file_name):
+#     search_num = 0
+#     plt.xticks([j for j in range(len(sizes))], [str(size) for size in sizes])
+#     for search in searches:
+#         search_num += 1
+#         d = dict_searches[search.__name__]
+#         x_axis = [j + 0.05 * search_num for j in range(len(sizes))]
+#         y_axis = [d[i] for i in sizes]
+#         plt.bar(x_axis, y_axis, width=0.05, alpha=0.75, label=search.__name__)
+#     plt.legend()
+#     plt.title("Runtime of search algorithms")
+#     plt.xlabel("Number of elements")
+#     plt.ylabel(f"Time for {trials} trials (ms)")
+#     plt.savefig(file_name)
+#     plt.show()
+#
+#
+# def main():
+#     searches = [native_search, linear_search, binary_search_recursive, binary_search_iterative,
+#                 binary_search_iterative_better, binary_search_randomized, exponential_search, jump_search,
+#                 interpolation_search, fibonacci_search, ternary_search]
+#     size = [100, 1000, 10000]
+#     trials = 1000
+#     dict_searches = run_searches(searches, size, trials)
+#     print_times(dict_searches)
+#     plot_times(dict_searches, size, trials, searches, file_name="Assignment1.png")
+#
+#
+# if __name__ == '__main__':
+#     main()
+
+def plot_times(desc, dict_algs, sizes, trials, algs, file_name):
+    alg_num = 0
     plt.xticks([j for j in range(len(sizes))], [str(size) for size in sizes])
-    for search in searches:
-        search_num += 1
-        d = dict_searches[search.__name__]
-        x_axis = [j + 0.05 * search_num for j in range(len(sizes))]
+    for alg in algs:
+        alg_num += 1
+        d = dict_algs[alg.__name__]
+        x_axis = [j + 0.05 * alg_num for j in range(len(sizes))]
         y_axis = [d[i] for i in sizes]
-        plt.bar(x_axis, y_axis, width=0.05, alpha=0.75, label=search.__name__)
+        plt.bar(x_axis, y_axis, width=0.05, alpha=0.75, label=alg.__name__)
     plt.legend()
-    plt.title("Runtime of search algorithms")
+    plt.title(f"Runtime of {desc} algorithms")
     plt.xlabel("Number of elements")
     plt.ylabel(f"Time for {trials} trials (ms)")
     plt.savefig(file_name)
@@ -249,7 +280,7 @@ def main():
     trials = 1000
     dict_searches = run_searches(searches, size, trials)
     print_times(dict_searches)
-    plot_times(dict_searches, size, trials, searches, file_name="Assignment1.png")
+    plot_times("search", dict_searches, size, trials, searches, file_name="Assignment1.png")
 
 
 if __name__ == '__main__':
