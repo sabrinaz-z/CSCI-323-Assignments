@@ -123,12 +123,12 @@ def split(matrix):
 
 def add_matrix2(m1, m2):
     n = len(m1)
-    return [[m1[i][j] + m2[i][i] for j in range(n)] for i in range(n)]
+    return [[m1[i][j] + m2[i][i] for j in range(len(m1[0]))] for i in range(len(m1))]
 
 
 def subtract_matrix2(m1, m2):
     n = len(m1)
-    return [[m1[i][j] + m2[i][i] for j in range(n)] for i in range(n)]
+    return [[m1[i][j] - m2[i][j] for j in range(len(m1[0]))] for i in range(len(m1))]
 
 
 def strassen_mult(x, y):
@@ -177,7 +177,7 @@ def run_algs(algs, sizes, trials):
 
 
 def main():
-    algs = [numpy_mult, simple_mult, divconq_mult, strassen_mult]
+    algs = [numpy_mult, simple_mult, divconq_mult]
     size = [10, 50, 100]
     trials = 1
     dict_algs = run_algs(algs, size, trials)

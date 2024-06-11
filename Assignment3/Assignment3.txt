@@ -1,0 +1,7 @@
+"C:\Users\Sabrina Zheng\AppData\Local\Programs\Python\Python312\python.exe" "C:\Users\Sabrina Zheng\PycharmProjects\CSCI-323-Assignments\Assignment3\Assignment3.py"
+                   10         50          100
+numpy_mult    1.000166   1.001120    1.000881
+simple_mult   0.000000   4.509926   38.860559
+divconq_mult  0.000000  38.092613  319.791079
+
+Process finished with exit code 0
