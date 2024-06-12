@@ -1,1 +1,1 @@
-# CSCI-323-Assisngments
+# CSCI-323-Assignments
