@@ -1,0 +1,10 @@
+"C:\Users\Sabrina Zheng\AppData\Local\Programs\Python\Python312\python.exe" "C:\Users\Sabrina Zheng\PycharmProjects\CSCI-323-Assignments\Assignment4\Assignment4.py"
+17x + 5y = 103 [(4, 7), (9, -10), (9, 6), (4, 2), (0, 6), (5, -8), (3, 0), (-5, 10), (-5, 3), (0, -5)]
+The Convex Hull for the point: [(4, 7), (9, -10), (9, 6), (4, 2), (0, 6), (5, -8), (3, 0), (-5, 10), (-5, 3), (0, -5)] is [[9.0, 6.0], [-5.0, 10.0], [-5.0, 3.0], [0.0, -5.0], [5.0, -8.0], [9.0, -10.0]]
+The area of the convex hull is 185
+The perimeter of the convex hull is 57.297288760462514
+Not Equable Shape
+Closest Pair: ((4, 2), (3, 0)) Distance: 2.23606797749979
+Farthest Pair: ((9, -10), (-5, 10)) Distance: 24.413111231467404
+
+Process finished with exit code 0
