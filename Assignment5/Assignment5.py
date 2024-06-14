@@ -72,6 +72,21 @@ def f7(f, n):
     return 1 if n <= 1 else ff(f, n // 2) + 1
 
 
+def f8(f, n):
+    # shell sort
+    return 1 if n == 1 else 2 * ff(f, n // 2) + n
+
+
+def f9(f, n):
+    # radix sort
+    return 0 if n <= 1 else 10 * ff(f, n // 10) + n
+
+
+def f10(f, n):
+    # heap sort
+    return 0 if n == 1 else 2 * ff(f, n // 2) + n * math.log(n, 2)
+
+
 def call_and_print(data, func, n, context, desc, a, b, c):
     result = ff(func, n)
     mt_result = master_theorem(a, b, c)
@@ -114,9 +129,12 @@ def main():
     call_and_print(data, f2, n, "Quick Select", "f(n) = f(n/2) + n", 1, 2, 1)
     call_and_print(data, f3, n, "Stooge Sort", "f(n) = 3f(n/1.5) + 1", 3, 1.5, 0)
     call_and_print(data, f4, n, "Bubble Sort", "f(n) = f(n/n-1) + n", 1, n - 1, 1)
-    call_and_print(data, f5, n, "Cocktail Sort", "Bidirectional bubble sort", 2, n - 1, 1)
-    call_and_print(data, f6, n, "Selection Sort", "Selects minimum to front", 1, n - 1, 1)
+    call_and_print(data, f5, n, "Cocktail Sort", "f(n) = 2f(n/n-1) + n", 2, n - 1, 1)
+    call_and_print(data, f6, n, "Selection Sort", "f(n) = f(n/n-1) + n", 1, n - 1, 1)
     call_and_print(data, f7, n, "Binary Search", "f(n) = f(n/2) + 1", 1, 2, 0)
+    call_and_print(data, f8, n, "Shell Sort", "f(n) = 2f(n/2) + n", 2, 2, 1)
+    call_and_print(data, f9, n, "Radix Sort", "f(n) = 10f(n/10) + n", 10, 10, 1)
+    call_and_print(data, f10, n, "Heap Sort", "f(n) = 2f(n/2) + n", 2, 2, 1)
 
     print_text_table(headers, data, alignments)
     sorted_data = sorted(data, key=lambda l: l[4])
@@ -126,4 +144,3 @@ def main():
 if __name__ == '__main__':
     main()
 
-# create 7 more functions, and call call_and_print function, dont worry about the graph
