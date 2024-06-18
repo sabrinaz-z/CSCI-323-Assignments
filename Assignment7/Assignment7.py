@@ -9,6 +9,9 @@
 
 from random import random, randint
 import numpy as np
+import matplotlib.pyplot as plt
+import networkx as nx
+from time import time
 
 
 def do_graph(des, matrix, directed):
@@ -20,6 +23,13 @@ def do_graph(des, matrix, directed):
     print_edge_set(edges)
     map = edge_map(matrix, directed)
     print_edge_map(map)
+    bfs_visited = [False] * len(matrix)
+    bfs_order = bfs(table, 0, bfs_visited)
+    print("The BFS:", bfs_order)
+    dfs_order = dfs(table, 0)
+    print("The DFS:", bfs_order)
+    file_name = "Assignment7_" + des.replace(" ", "_") + ".png"
+    draw_graph(edges, directed, file_name)
 
 
 def print_edge_set(edges):
@@ -107,19 +117,76 @@ def random_graph(size, max_cost, p=1, directed=False):
     return matrix
 
 
+# [7] Define functions that traverse the graph in these two standard orderings
+# Breadth-First Search (BFS)
+def bfs(adjList, startNode, visited):
+    bfs_order = []
+    q = []
+    visited[startNode] = True
+    bfs_order.append(startNode)
+    q.append(startNode)
+    while q:
+        node = q.pop()
+        for neighbor in adjList[node]:
+            if not visited[neighbor]:
+                visited[neighbor] = True
+                bfs_order.append(neighbor)
+                q.append(neighbor)
+    return bfs_order
+
+
+# Depth-First Search (DFS)
+def dfs_util(table, v, visited, dfs_order):
+    visited.add(v)
+    dfs_order.append(v)
+    for w in table[v]:
+        if w not in visited:
+            dfs_util(table, w, visited, dfs_order)
+
+
+def dfs(table, v):
+    visited = set()
+    dfs_order = []
+    dfs_util(table, v, visited, dfs_order)
+    return dfs_order
+
+
 # [9] Define a function print_graph_tabular(matrix) that prints a graph in tabular form.
+
+# [10] Define a function draw_graph(graph) that draws a graph
+# Define a function draw_graph(graph) that draws a graph and saves it as a file.
+# https://stackoverflow.com/questions/20133479/how-to-draw-directed-graphs-using-networkx-in-python
+# https://stackoverflow.com/questions/74312314/draw-a-directed-graph-in-python
+def draw_graph(edges, directed, filename):
+    G = nx.DiGraph()
+    G.add_edges_from(edges)
+    val_map = {'A': 1.0, 'D': 0.5714285714285714, 'H': 0.0}
+    values = [val_map.get(node, 0.25) for node in G.nodes()]
+    pos = nx.spring_layout(G)
+    cmap = plt.get_cmap('jet')
+    nx.draw_networkx_nodes(G, pos, cmap=cmap, node_color=values, node_size=500)
+    nx.draw_networkx_labels(G, pos, font_size=12, font_color='white')
+    if directed:
+        nx.draw_networkx_edges(G, pos, edgelist=edges, edge_color='r', arrows=directed, arrowsize=10)
+    else:
+        nx.draw_networkx_edges(G, pos, edgelist=edges, edge_color='r', arrows=False)
+
+    plt.savefig(filename)
+    plt.show()
 
 
 def main():
     matrix = read_graph("Graph.txt")
-    do_graph("Graph from file Graph.txt", matrix, directed=True)
+    do_graph("Graph from file Graph.txt", matrix, True)
 
     matrix2 = random_graph(10, max_cost=9, directed=True)
-    do_graph("Random Directed Graph of size 10", matrix2, directed=True)
+    do_graph("Random Directed Graph of size 10", matrix2, True)
 
     matrix3 = random_graph(10, max_cost=9, directed=False)
-    do_graph("Random Undirected Graph of size 10", matrix3, directed=False)
+    do_graph("Random Undirected Graph of size 10", matrix3, False)
 
+    matrix4 = random_graph(10, max_cost=9, p=.4, directed=False)
+    do_graph("Random Undirected Graph of size 10", matrix4, False)
 
 
 if __name__ == '__main__':
