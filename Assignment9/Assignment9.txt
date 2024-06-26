@@ -1,0 +1,8 @@
+"C:\Users\Sabrina Zheng\AppData\Local\Programs\Python\Python312\python.exe" "C:\Users\Sabrina Zheng\PycharmProjects\CSCI-323-Assignments\Assignment9\Assignment9.py"
+prim_mst has cost 239 with MST [[0, 3, 31], [3, 9, 15], [3, 5, 18], [3, 4, 27], [4, 1, 23], [5, 2, 33], [2, 7, 9], [5, 8, 36], [2, 6, 47]]
+kruskal_mst has cost 239 with MST [[2, 7, 9], [3, 9, 15], [3, 5, 18], [1, 4, 23], [3, 4, 27], [0, 3, 31], [2, 5, 33], [5, 8, 36], [2, 6, 47]]
+              10         20         30          40
+prim_mst     0.0   0.000000   0.000000    1.000643
+kruskal_mst  0.0  13.004065  46.034813  110.519409
+
+Process finished with exit code 0
